@@ -5,7 +5,7 @@ import GameUserMessage from "./GameUserMessage";
 import { getUser } from "../Actions/actions";
 import { connect } from "react-redux";
 
-const URL = "ws://fika-game-chat.herokuapp.com/";
+const URL = "wss://fika-game-chat.herokuapp.com/";
 
 class GameChat extends Component {
   state = {
