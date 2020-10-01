@@ -19,7 +19,7 @@ export const getUser = () => {
         },
       };
       const resp = await fetch(
-        "wss://fika-django.herokuapp.com/core/current_user",
+        "https://fika-django.herokuapp.com/core/current_user",
         options
       );
       const userdata = await resp.json();
@@ -57,7 +57,7 @@ export const getChat = () => {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
       };
-      const resp = await fetch("wss://fika-django.herokuapp.com/core/message/", options);
+      const resp = await fetch("https://fika-django.herokuapp.com/core/message/", options);
       const messagedata = await resp.json();
       dispatch(loadChat(messagedata));
     } catch (err) {

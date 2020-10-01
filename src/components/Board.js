@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { getUser } from "../Actions/actions";
 import "../styles/circle.svg";
 
-const URL = "wss://fika-tictactoe.herokuapp.com/";
+const URL = "https://fika-tictactoe.herokuapp.com/";
 
 class Board extends Component {
   state = {
