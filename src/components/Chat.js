@@ -112,4 +112,4 @@ class Chat extends React.Component {
 }
 const mSTP = (state) => ({ user: state });
 export default connect(mSTP, { getUser, getChat })(Chat);
-// export default Chat;
+
