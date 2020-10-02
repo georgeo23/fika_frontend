@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import ChatInput from "./ChatInput";
-import ChatMessage from "./ChatMessage";
-import UserMessage from "./UserMessage";
+import GameChatInput from "./GameChatInput";
+import GameChatMessage from "./GameChatMessage";
+import GameUserMessage from "./GameUserMessage";
 import { getUser } from "../Actions/actions";
 import { connect } from "react-redux";
-import "../styles/Userchat.css";
-import "../styles/modal.css";
-const URL = "wss://fika-game-chat.herokuapp.com/";
 
+const URL = "wss://fika-game-chat.herokuapp.com/";
 class GameChat extends Component {
   state = {
     message: [],
@@ -32,35 +30,33 @@ class GameChat extends Component {
       });
     };
   }
-
   addMessage = (data) =>
-    this.setState((state) => ({ message: [...state.message, data] }));
-
+    this.setState((state) => ({ message: [...state.message, data] 
+  }));
   submitMessage = (messageString) => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
     const message = {
       username: this.props.user.userData.username,
       message: messageString,
     };
-
     this.ws.send(JSON.stringify(message));
     this.addMessage(message);
   };
   render() {
     // console.log(this.props.user.message);
-    const name = this.props.user.userData.username;
+     const name = this.props.user.userData.username;
     let message = this.state.message.map((message, index) =>
       name !== message.username ? (
-        <ChatMessage
-          className="otherusers"
+        <GameChatMessage
+          className="otherGameUsers"
           key={index}
           message={message.message}
           name={message.username}
           time={message.created_at}
         />
       ) : (
-        <UserMessage
-          className="currentuser"
+        <GameUserMessage
+          className="currentGameUser"
           key={index}
           message={message.message}
           name={message.username}
@@ -69,17 +65,17 @@ class GameChat extends Component {
       )
     );
     return (
-      <div className="wrappergame">
-        <div className="chatbox">{message}</div>
-
-        <ChatInput
+      <>
+      <div className="gameChatWrapper">
+        <div className="chatMessage">{message}</div>
+        <GameChatInput
           ws={this.ws}
           onSubmitMessage={(messageString) => this.submitMessage(messageString)}
         />
-      </div>
+        </div>
+      </>
     );
   }
 }
 const mSTP = (state) => ({ user: state });
 export default connect(mSTP, { getUser })(GameChat);
-// export default Chat;

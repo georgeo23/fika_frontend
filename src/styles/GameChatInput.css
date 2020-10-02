@@ -1,0 +1,13 @@
+.tttChatSubmit{
+    background-color: var(--yellow);
+}
+.tttChatForm{
+    width:400px;
+}
+.chatMessage{
+    width:0.1%;
+}
+.gameChatWrapper{
+  position: absolute;
+  padding-top: 75px;
+}

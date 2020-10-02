@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Square from "./Square";
-import "../styles/tiktactoe.css";
+import "../styles/tictactoe.css";
 import { connect } from "react-redux";
 import { getUser } from "../Actions/actions";
 import circle from "../styles/circle.svg";

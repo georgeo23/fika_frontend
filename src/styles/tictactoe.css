@@ -91,3 +91,13 @@ ul {
 .gameResult a:hover {
   letter-spacing: 3px;
 }
+.gameChatBTN{
+  background-color: var(--yellow);
+  margin-top: 160%;
+  margin-left: 50%;
+}
+.container {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: auto;
+}
