@@ -93,15 +93,6 @@ class Chat extends React.Component {
     return (
       <div className="chatWrapper wrapper">
         <div className="chatbox">{message}</div>
-        {/* //   {this.props.user.message.username.filter()}
-      //   if this.props.user.message.username
-      //   {this.state.message.map((message, index) => ( */}
-        {/* //     <ChatMessage */}
-        {/* //       key={index}
-      //       message={message.message}
-      //       name={message.username}
-      //     />
-      //   ))} */}
         <ChatInput
           ws={this.ws}
           onSubmitMessage={(messageString) => this.submitMessage(messageString)}
