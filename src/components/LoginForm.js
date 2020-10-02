@@ -26,7 +26,7 @@ export default class Login extends Component {
     };
     console.log(options);
 
-    fetch("http://localhost:8000/token-auth/", options)
+    fetch("https://fika-django.herokuapp.com/token-auth/", options)
       .then((r) => r.json())
       .then((data) => {
         if (

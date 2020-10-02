@@ -5,7 +5,7 @@ import UserMessage from "./UserMessage";
 import { getUser, getChat } from "../Actions/actions";
 import { connect } from "react-redux";
 import "../styles/Userchat.css";
-const URL = "ws://localhost:3030";
+const URL = "wss://fika-chat.herokuapp.com/";
 
 class Chat extends React.Component {
   state = {
@@ -63,7 +63,10 @@ class Chat extends React.Component {
       body: JSON.stringify(message),
     };
 
-    fetch("http://localhost:8000/core/message/", options).then((r) => r.json());
+    fetch(
+      "https://fika-django.herokuapp.com/core/message/",
+      options
+    ).then((r) => r.json());
     this.ws.send(JSON.stringify(message));
     this.addMessage(message);
     this.setChat();

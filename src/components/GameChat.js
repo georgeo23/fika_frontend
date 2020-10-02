@@ -6,7 +6,7 @@ import { getUser } from "../Actions/actions";
 import { connect } from "react-redux";
 import "../styles/Userchat.css";
 import "../styles/modal.css";
-const URL = "ws://localhost:3041";
+const URL = "wss://fika-game-chat.herokuapp.com/";
 
 class GameChat extends Component {
   state = {
@@ -32,12 +32,6 @@ class GameChat extends Component {
       });
     };
   }
-  // componentDidUpdate(prevProps, PrevState) {
-  //   if (PrevState.message !== this.state.message) {
-  //     // this.setState({ message: this.props.getChat() });
-  //     this.props.getChat();
-  //   }
-  // }
 
   addMessage = (data) =>
     this.setState((state) => ({ message: [...state.message, data] }));
@@ -48,17 +42,7 @@ class GameChat extends Component {
       username: this.props.user.userData.username,
       message: messageString,
     };
-    // console.log(message);
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     Authorization: `JWT ${localStorage.getItem("token")}`,
-    //   },
-    //   body: JSON.stringify(message),
-    // };
-    // console.log(options);
-    // fetch("http://localhost:8000/core/message/", options).then((r) => r.json());
+
     this.ws.send(JSON.stringify(message));
     this.addMessage(message);
   };

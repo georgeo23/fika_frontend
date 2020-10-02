@@ -19,7 +19,7 @@ export const getUser = () => {
         },
       };
       const resp = await fetch(
-        "http://localhost:8000/core/current_user",
+        "https://fika-django.herokuapp.com/core/current_user",
         options
       );
       const userdata = await resp.json();
@@ -29,24 +29,7 @@ export const getUser = () => {
     }
   };
 };
-// export const getOrg = () => {
-//   return async (dispatch) => {
-//     try {
-//       const options = {
-//         method: "GET",
-//         headers: {
-//           "Content-type": "application/json",
-//           Authorization: `JWT ${localStorage.getItem("token")}`,
-//         },
-//       };
-//       const resp = await fetch("http://localhost:8000/core/chat", options);
-//       const userdata = await resp.json();
-//       dispatch(loadData(userdata));
-//     } catch (err) {
-//       throw new Error(err.message);
-//     }
-//   };
-// };
+
 export const getChat = () => {
   return async (dispatch) => {
     try {
@@ -57,7 +40,10 @@ export const getChat = () => {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
       };
-      const resp = await fetch("http://localhost:8000/core/message/", options);
+      const resp = await fetch(
+        "https://fika-django.herokuapp.com/core/message/",
+        options
+      );
       const messagedata = await resp.json();
       dispatch(loadChat(messagedata));
     } catch (err) {

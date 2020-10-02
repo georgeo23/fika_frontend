@@ -7,7 +7,7 @@ import circle from "../styles/circle.svg";
 import cross from "../styles/cross.svg";
 import winnerImg from "../styles/winner.svg";
 
-const URL = "ws://young-chamber-42572.herokuapp.com/";
+const URL = "wss://fika-tictactoe.herokuapp.com/";
 
 class Board extends Component {
   state = {
